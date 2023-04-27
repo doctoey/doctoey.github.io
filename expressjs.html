@@ -176,7 +176,7 @@ img {
 table,
 th,
 td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
+	border: 3px solid rgba(255, 255, 255, 0.09);
 	border-collapse: collapse;
 }
 
@@ -667,6 +667,26 @@ blockquote {
 .checkbox-off {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
+
+.green {
+	color: limegreen;
+}
+
+.yellow {
+	color: yellow;
+}
+
+.brown {
+	color: darkorange;
+}
+
+.db {
+	color: chocolate;
+}
+
+.pink {
+	color: pink;
+}
 	
 </style></head><body><article id="42824bd7-fede-42de-a8f2-f4ae9f24efd8" class="page sans"><header><h1 class="page-title">Express.js</h1></header><div class="page-body"><div id="18513eca-71d3-4732-ba4b-06f1ec6b8183" class="column-list"><div id="9cc441a2-753a-449a-a6b6-8185e156209a" style="width:25%" class="column"><p id="04776ed7-f09f-47b9-8ac0-ce77eb072935" class="">Table of Content</p><p id="7e65e155-3624-49f2-8568-f19e1d0c8ccf" class="">🤔</p></div><div id="14a48b4d-4d74-471c-b184-ffbaeb0fc7f6" style="width:75%" class="column"><nav id="715dcbea-78f7-4df2-a261-9ac44db6fc51" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#de4ff1d1-71f3-49e4-8103-1393f8b81ccf"><code>Backend input</code> </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#85f8f6ad-7137-4bb8-a97c-85041c12fb16"><code>Backend output</code> </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9399f272-0437-4b64-960e-1c63992c475d"><code>URL</code></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#cefe7f4a-67e3-442c-b7fa-86706914f76c"><code>Parameter</code></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8a677631-da42-4b27-949d-d849f7d8babd"><code>Query Parameter</code></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#009af2d3-e1ce-4739-be32-87f2e5ee4832"><code>Router</code></a></div></nav></div></div><p id="0716f351-8617-4a97-bf92-4a34d92304cd" class="">
 </p><p id="c4879f13-eaee-4f37-a371-fb96822742ce" class=""><mark class="highlight-gray_background">Method</mark><mark class="highlight-gray">            </mark><mark class="highlight-teal">Address                 </mark><mark class="highlight-purple">Path</mark></p><p id="cb3ee4a3-a74e-4c65-82a0-7c2a4d72c109" class=""><mark class="highlight-gray_background">GET</mark>    <mark class="highlight-orange_background">https://</mark><mark class="highlight-teal_background">maxwell.sg</mark><mark class="highlight-blue_background">:8888</mark><mark class="highlight-purple_background">/menus/chicken-rice/8888</mark></p><p id="394e1a8e-3fdc-4685-a1a3-84df51bcfb87" class="">          <mark class="highlight-orange">protocol               </mark><mark class="highlight-blue">Port</mark></p><h3 id="de4ff1d1-71f3-49e4-8103-1393f8b81ccf" class=""><code>Backend input</code> </h3><p id="799fb540-e59a-4b24-a01c-29354d81f624" class="">→ ใส่ input ลงไป ต้องชัดเจน </p><ul id="9e8250bb-0afc-4e7e-b0c3-4147e4fba12e" class="bulleted-list"><li style="list-style-type:disc">URL</li></ul><ul id="005206ee-29de-4ed7-a8f8-ae2544acc4c3" class="bulleted-list"><li style="list-style-type:disc">Parameter</li></ul><ul id="c488946a-240f-439a-83a2-da6c6f09a38c" class="bulleted-list"><li style="list-style-type:disc">Query Parameter</li></ul><ul id="2a99b399-0500-4afc-81f7-13a311d6d85b" class="bulleted-list"><li style="list-style-type:disc">Body</li></ul><h3 id="85f8f6ad-7137-4bb8-a97c-85041c12fb16" class=""><code>Backend output</code> </h3><p id="4c90be2f-c603-497b-86e4-76c7ec3ba64f" class="">→ มันต้องตอบกลับได้ </p><ul id="5e3ee8f2-f6dc-4206-8a02-f2ea7a94fe42" class="bulleted-list"><li style="list-style-type:disc">Status code — <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200"><code>200 OK</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"><code>404 Not Found</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"><code>502 Bad Gateway</code></a></li></ul><ul id="02bd1315-b3e5-4e3d-8bd6-7b1aec8135e2" class="bulleted-list"><li style="list-style-type:disc">Body</li></ul><pre id="7acb8b06-cda1-41f4-a7d6-6041c5165106" class="code"><code>1xx: Informational
@@ -674,7 +694,7 @@ blockquote {
 3xx: Redirection
 4xx: Client Error
 5xx: Server Error</code></pre><p id="1bb5f218-625c-41c8-b12b-45685ddc314b" class=""><code>Node.js backend framework</code></p><ul id="1f834a7c-1662-447f-828c-2476d309bff3" class="bulleted-list"><li style="list-style-type:disc">Express</li></ul><ul id="454445b2-2612-4fef-a97a-ee66955cd238" class="bulleted-list"><li style="list-style-type:disc">nest</li></ul><ul id="1b22f899-7905-4751-877e-3e5f0d6e51e6" class="bulleted-list"><li style="list-style-type:disc">hapi</li></ul><ul id="b7c106b5-f35a-4662-a679-da266c0bfb8c" class="bulleted-list"><li style="list-style-type:disc">fastify</li></ul><p id="a27013e6-06ad-4310-bc16-b35240a167d4" class="">in <code>package.json</code> ถ้าไม่อยากใช้  <code>const express = require(&#x27;express&#x27;);</code></p><pre id="c201a357-6ad3-4d59-b25b-797ce382c775" class="code"><code>ให้เพิ่ม
-&quot;type&quot;:&quot;module&quot;
+<span class="pink">&quot;type&quot;</span>:<span class="green">&quot;module&quot;</span>
 
 เช่น
 {
@@ -690,30 +710,30 @@ blockquote {
   &quot;dependencies&quot;: {
     &quot;express&quot;: &quot;^4.18.2&quot;
   },
-  &quot;type&quot;:&quot;module&quot;
+  <span class="pink">&quot;type&quot;</span>:<span class="green">&quot;module&quot;</span>
 }</code></pre><p id="ebc7b15d-c7ee-482a-83a2-c2a8073a89d6" class="">เวลาใช้ จะกลายเป็นเหมือน <code>react</code> คือ <code>import express from &#x27;express&#x27;;</code></p><h2 id="9399f272-0437-4b64-960e-1c63992c475d" class=""><code>URL</code></h2><pre id="9c14f1df-b477-497f-a969-98178e42c5a1" class="code"><code>รำคาญมั้ยเวลาต้องนั่ง restart server 
-เรามีตัวช่วย !! &#x27;nodemon&#x27; https://www.npmjs.com/package/nodemon
+เรามีตัวช่วย <span class="yellow">!!</span><span class="green"> &#x27;nodemon&#x27; </span>https://www.npmjs.com/package/nodemon
 npm install -g nodemon
 
 nodemon index.js
 
-หรือเพิ่ม &quot;scripts&quot;: {
-    &quot;dev&quot;: &quot;nodemon index.js&quot;,
+หรือเพิ่ม<span class="green"> &quot;scripts&quot;</span><span class="yellow">:</span> {
+    &quot;dev&quot;:<span class="green"> &quot;nodemon index.js&quot;</span>,
   },
 
 เวลาใช้ก็พิมพ์คำสั่ง npm run dev ได้เลย</code></pre><pre id="68f62c82-35f7-4d09-be27-a3b81825eeef" class="code"><code>index.js
-//เอาข้าวมันไก่ 1 จาน
+<span class="db">//เอาข้าวมันไก่ 1 จาน
 // GET http://localhost:8080/
-//app.get(&#x27;/&#x27;, (request, response) =&gt; {}); จำ syntax
+//app.get(&#x27;/&#x27;, (request, response) =&gt; {}); จำ syntax </span>
 
 app.get(&#x27;/&#x27;, (req, res) =&gt; {
     const chickenRice = {
         rice: &#x27;olied rice&#x27;,
         meat: &#x27;boiled chicken&#x27;,
         sauce: [&#x27;red&#x27;, &#x27;white&#x27;],
-    };
-		//default = 200
-    res.send(chickenRice); //ส่งข้าวมันไก่ออกไป
+    };<span class="db">
+		//default = 200 </span>
+    res.send(chickenRice); <span class="db">//ส่งข้าวมันไก่ออกไป</span>
 });
 
 
@@ -725,8 +745,8 @@ on http://localhost:8080/
 {&quot;rice&quot;:&quot;olied rice&quot;,&quot;meat&quot;:&quot;boiled chicken&quot;,&quot;sauce&quot;:[&quot;red&quot;,&quot;white&quot;]}</code></pre><pre id="86ef4ed2-5182-4901-b77a-e113f56ccd58" class="code"><code>on Postman
 GET http://localhost:8080/ 
 
-click SEND
-//Status 200 OK
+click SEND<span class="db">
+//Status 200 OK</span>
 {
     &quot;rice&quot;: &quot;olied rice&quot;,
     &quot;meat&quot;: &quot;boiled chicken&quot;,
@@ -739,19 +759,19 @@ click SEND
         rice: &#x27;&#x27;,
         meat: &#x27;boiled chicken&#x27;,
         sauce: [&#x27;red&#x27;, &#x27;white&#x27;],
-    };
+    };<span class="db">
     //default = 200
     //res.send(chickenRice); //ส่งข้าวมันไก่ออกไป
-    //ถ้าข้าวหมด ของมันไม่มีแล้ว status 404 not found
-    res.status(404).end(); //จำ syntax ไปเลย
-		//วิธีปิด res มี
+    //ถ้าข้าวหมด ของมันไม่มีแล้ว status 404 not found</span>
+    res.status(404).end();<span class="db"> //จำ syntax ไปเลย 
+		//วิธีปิด res มี</span>
 		res.send();
     res.json();
 });
 
 on Postman
-status 404 not found</code></pre><pre id="b97d721b-96f1-4d18-b5ab-86ddced29448" class="code"><code>// GET http://localhost:8080/chicken-rice
-// GET http://localhost:8080/fried-chicken-rice
+status 404 not found</code></pre><pre id="b97d721b-96f1-4d18-b5ab-86ddced29448" class="code"><code><span class="db">// GET http://localhost:8080/chicken-rice
+// GET http://localhost:8080/fried-chicken-rice</span>
 
 // ข้าวมันไก่ต้ม
 app.get(&#x27;/chicken-rice&#x27;, (req, res) =&gt; {
@@ -759,19 +779,19 @@ app.get(&#x27;/chicken-rice&#x27;, (req, res) =&gt; {
         rice: &#x27;olied rice&#x27;,
         meat: &#x27;boiled chicken&#x27;,
         sauce: [&#x27;red&#x27;, &#x27;white&#x27;],
-    };
-    //default = 200
+    };<span class="db">
+		//default = 200</span>
     res.send(chickenRice); 
 });
 
-//ข้าวมันไก่ทอด
+<span class="db">//ข้าวมันไก่ทอด</span>
 app.get(&#x27;/fried-chicken-rice&#x27;, (req, res) =&gt; {
     const friedchickenRice = {
         rice: &#x27;olied rice&#x27;,
         meat: &#x27;fried chicken&#x27;,
         sauce: [&#x27;syrup&#x27;, &#x27;chili&#x27;],
-    };
-    //default = 200
+    };<span class="db">
+    //default = 200</span>
     res.send(friedchickenRice); 
 });
 
@@ -797,7 +817,7 @@ http://localhost:8080/fried-chicken-rice
 }
 
 but http://localhost:8080/
-404 not found</code></pre><h2 id="cefe7f4a-67e3-442c-b7fa-86706914f76c" class=""><code>Parameter</code></h2><pre id="68e4f8a1-2aa6-41d4-984e-223faeb5ca08" class="code"><code>app.get(&#x27;/:menu&#x27;, (req, res) =&gt; {  // ใช้ : (colon)
+404 not found</code></pre><h2 id="cefe7f4a-67e3-442c-b7fa-86706914f76c" class=""><code>Parameter</code></h2><pre id="68e4f8a1-2aa6-41d4-984e-223faeb5ca08" class="code"><code>app.get(&#x27;/:menu&#x27;, (req, res) =&gt; { <span class="db"> // ใช้ : (colon) </span>
     console.log(&#x27;Request paramaeters&#x27;);
     console.log(req.params);
     const chickenRice = {
@@ -808,9 +828,9 @@ but http://localhost:8080/
     //default = 200
     res.send(chickenRice); 
 });
-
+<span class="db">
 //Request paramaeters
-//{ menu: &#x27;chicken-rice&#x27; }
+//{ menu: &#x27;chicken-rice&#x27; }</span>
 
 on Postman
 http://localhost:8080/chicken-rice
@@ -886,10 +906,10 @@ http://localhost:8080/fried-chicken-rice
 
 on Postman
 http://localhost:8080/kaomoodang
-We not serving kaomoodang</code></pre><pre id="359d9f3a-c7c0-4487-98e0-4c1beaa7f4c9" class="code"><code>app.post(&#x27;/:menu&#x27;, (req, res) =&gt; {}); //การสร้าง การเพิ่มข้อมูล จดกระดาษหน้าใหม่ บลาๆ เช่น ไปวิ่งมา 3 ชม
-app.put(&#x27;/:menu&#x27;, (req, res) =&gt; {}); //อัพเดทข้อมูล เช่น ลงไปแล้วว่าไปวิ่งมา 3 ชม แต่จะแก้ ออกเพิ่ม จาก 3 -&gt; 4 ชม
-app.delete (&#x27;/:menu&#x27;, (req, res) =&gt; {}); //ลบข้อมูล</code></pre><pre id="127b1a37-ae5a-4958-8ab7-0418d05aad46" class="code"><code>//อยากให้ลูกค้ามาสั่งล่วงหน้า
-// POST /:menu 
+We not serving kaomoodang</code></pre><pre id="359d9f3a-c7c0-4487-98e0-4c1beaa7f4c9" class="code"><code>app.<b>post</b>(<span class="green">&#x27;/:menu&#x27;</span>, (req, res) =&gt; {});<span class="db">//การสร้าง การเพิ่มข้อมูล จดกระดาษหน้าใหม่ บลาๆ เช่น ไปวิ่งมา 3 ชม </span>
+app.<b>put</b>(<span class="green">&#x27;/:menu&#x27;</span>, (req, res) =&gt; {}); <span class="db">//อัพเดทข้อมูล เช่น ลงไปแล้วว่าไปวิ่งมา 3 ชม แต่จะแก้ ออกเพิ่ม จาก 3 -&gt; 4 ชม</span>
+app.<b>delete</b> (<span class="green">&#x27;/:menu&#x27;</span>, (req, res) =&gt; {});<span class="db"> //ลบข้อมูล</span></code></pre><pre id="127b1a37-ae5a-4958-8ab7-0418d05aad46" class="code"><code><span class="db">//อยากให้ลูกค้ามาสั่งล่วงหน้า
+// POST /:menu </span>
 
 const preOrders = [];
 
@@ -905,8 +925,8 @@ app.post(&#x27;/pre-orders&#x27;, (req, res) =&gt; {
 
 on Postman
 http://localhost:8080/chicken-rice
-Order success. Your order id 0</code></pre><pre id="95ed951d-26da-49bc-b272-81c77f59b0d2" class="code"><code>//ลูกค้ายกเลิกออเดอร์
-// DELETE /:menu 
+Order success. Your order id 0</code></pre><pre id="95ed951d-26da-49bc-b272-81c77f59b0d2" class="code"><code><span class="db">//ลูกค้ายกเลิกออเดอร์
+// DELETE /:menu </span>
 
 app.delete(&#x27;/pre-orders/:orderID&#x27;, (req, res) =&gt; { 
     const { menu, orderID } = req.params;
@@ -918,18 +938,18 @@ app.delete(&#x27;/pre-orders/:orderID&#x27;, (req, res) =&gt; {
     res.status(200).send(`Order ${orderID} canceled`); 
 });
 
-on Postman
-//post ก่อน (สร้างก่อน) สัก 5 order
+on Postman<span class="db">
+//post ก่อน (สร้างก่อน) สัก 5 order</span>
 http://localhost:8080/pre-orders/
-Order success. Your order id 5
+Order success. Your order id 5<span class="db">
 //ถ้าจะลบ order ที่ 3
-//ส่งเป็น delete 
+//ส่งเป็น delete </span>
 http://localhost:8080/pre-orders/3
-Order 3 canceled</code></pre><h2 id="8a677631-da42-4b27-949d-d849f7d8babd" class=""><code>Query Parameter</code></h2><pre id="9a7e820c-37ba-447f-b087-b21ef3626834" class="code"><code>http://localhost:8080/pre-orders/?menu=fried-chicken-rice&amp;size=xl
+Order 3 canceled</code></pre><h2 id="8a677631-da42-4b27-949d-d849f7d8babd" class=""><code>Query Parameter</code></h2><pre id="9a7e820c-37ba-447f-b087-b21ef3626834" class="code"><code>http://localhost:8080/pre-orders/<b>?menu=fried-chicken-rice&amp;size=xl</b>
 
-ด้านหลัง ? ทั้งหมด จะเรียก Query Param
+ด้านหลัง <span class="yellow">?</span> ทั้งหมด จะเรียก Query Param
 ในที่นี้คือ menu=fried-chicken-rice&amp;size=xl
-จะใช้ ตัว &amp; ใน การแบ่ง</code></pre><table id="9bd42273-02a8-4f56-8bf9-59360ebf21f3" class="simple-table"><tbody><tr id="eeb29d48-c311-4541-baa6-152ddf543472"><td id="IOAC" class="">key</td><td id="VV&lt;m" class="">value</td></tr><tr id="4d63546f-70af-4745-ba28-47b02fdb63f0"><td id="IOAC" class="">menu</td><td id="VV&lt;m" class="">fried-chicken-rice</td></tr><tr id="368b517a-b489-49a4-abaf-fa1ccfe580ab"><td id="IOAC" class="">size</td><td id="VV&lt;m" class="">xl</td></tr></tbody></table><pre id="669f9b7e-0976-4cf3-847a-72bc2276c85d" class="code"><code>app.post(&#x27;/pre-orders&#x27;, (req, res) =&gt; { 
+จะใช้ ตัว <span class="yellow">&amp;</span> ใน การแบ่ง</code></pre><table id="9bd42273-02a8-4f56-8bf9-59360ebf21f3" class="simple-table"><tbody><tr id="eeb29d48-c311-4541-baa6-152ddf543472"><td id="IOAC" class="">key</td><td id="VV&lt;m" class="">value</td></tr><tr id="4d63546f-70af-4745-ba28-47b02fdb63f0"><td id="IOAC" class="">menu</td><td id="VV&lt;m" class="">fried-chicken-rice</td></tr><tr id="368b517a-b489-49a4-abaf-fa1ccfe580ab"><td id="IOAC" class="">size</td><td id="VV&lt;m" class="">xl</td></tr></tbody></table><pre id="669f9b7e-0976-4cf3-847a-72bc2276c85d" class="code"><code>app.post(&#x27;/pre-orders&#x27;, (req, res) =&gt; { 
     const { menu, size } = req.query;
     console.log(&#x27;Request query&#x27;);
     console.log(req.query);
@@ -952,17 +972,17 @@ import { preOrdersRouter } from &#x27;./routers/preOrder.js&#x27;;
 app.use(preOrdersRouter);
 
 ใน preOrder.js
-const preOrdersRouter = express.Router(); //อันนี้จำไปเลย ถ้าต้องการจะสร้าง router ตัวใหม่</code></pre><pre id="11e9cdb4-0527-43b0-8318-c60e50110ad7" class="code"><code>ใน preOrder.js เขียนเหมือน app ทุกอย่างเลย แค่เปลี่ยนเป็น preOrdersRouter 
+const preOrdersRouter = express.Router(); <span class="brown">//อันนี้จำไปเลย ถ้าต้องการจะสร้าง router ตัวใหม่</span></code></pre><pre id="11e9cdb4-0527-43b0-8318-c60e50110ad7" class="code"><code>ใน preOrder.js เขียนเหมือน app ทุกอย่างเลย แค่เปลี่ยนเป็น preOrdersRouter 
 
 import express from &#x27;express&#x27;;
 const preOrdersRouter = express.Router();
 
 const preOrders = [];
+<span class="db">
+// <b>preOrdersRouter</b>.get(&#x27;/pre-orders:orderId&#x27;, (req, res) =&gt; { 
+// });</span>
 
-// preOrdersRouter.get(&#x27;/pre-orders:orderId&#x27;, (req, res) =&gt; { 
-// });
-
-preOrdersRouter.post(&#x27;/pre-orders&#x27;, (req, res) =&gt; { 
+<b>preOrdersRouter</b>.post(&#x27;/pre-orders&#x27;, (req, res) =&gt; { 
     const { menu, size } = req.query;
     console.log(&#x27;Request query&#x27;);
     console.log(req.query);
@@ -973,25 +993,25 @@ preOrdersRouter.post(&#x27;/pre-orders&#x27;, (req, res) =&gt; {
     preOrders.push(newPreorder);
     res.status(200).send(`Order success. Your order id ${newPreorder.id}`); 
 });
-
+<span class="db">
 //ลูกค้ายกเลิกออเดอร์
-// DELETE /:menu 
+// DELETE /:menu </span>
 
-preOrdersRouter.delete(&#x27;/pre-orders/:orderID&#x27;, (req, res) =&gt; { 
+<b>preOrdersRouter</b>.delete(&#x27;/pre-orders/:orderID&#x27;, (req, res) =&gt; { 
     const { menu, orderID } = req.params;
     const newPreorderIndex = preOrders.findIndex((order) =&gt; order.id === order.id);
     if (newPreorderIndex === -1) { //ถ้าเป็น -1 คือ ไม่มีคำสั่ง order นี้ ยกเลิกไม่ได้
         return res.status(404).send(`Order ${orderID} not found`); 
     }
     preOrders[newPreorderIndex] = null
-    res.status(200).send(`Order ${orderID} canceled`); 
+    res.status(200).send(<span class="green">`Order</span> ${orderID} <span class="green">canceled`</span>); 
 });
 
-export { preOrdersRouter }; //อย่าลืม export ไม่งั้น Index.js จะหาไม่เจอ
+export { preOrdersRouter }; <span class="brown">//อย่าลืม export ไม่งั้น Index.js จะหาไม่เจอ</span>
 </code></pre><pre id="b441f34f-43a9-45d7-8d85-a8c43c24d597" class="code"><code>จะเห็นได้ว่า ตรง
-preOrdersRouter.post(&#x27;/pre-orders&#x27;, (req, res) =&gt; { 
-มี /pre-orders ยุบยับไปหมด เราลบออกได้นะ
+preOrdersRouter.post(<span class="green">&#x27;/pre-orders&#x27;</span>, (req, res) =&gt; { 
+มี <span class="yellow">/</span>pre-orders ยุบยับไปหมด เราลบออกได้นะ
 
 แล้วใส่ path ตรง
-app.use(&#x27;/pre-orders&#x27;, preOrdersRouter); แทน
+<b>app.use(<span class="green">&#x27;/pre-orders&#x27;</span>, preOrdersRouter); แทน</b>
 คือให้ path pre-orders ทั้งหมดเนี่ย วิ่งเข้า preOrdersRouter โค้ดจะมีความเรียบร้อยขึ้น</code></pre></div></article></body></html>

@@ -1,0 +1,995 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Express.js</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="42824bd7-fede-42de-a8f2-f4ae9f24efd8" class="page sans"><header><h1 class="page-title">Express.js</h1></header><div class="page-body"><div id="18513eca-71d3-4732-ba4b-06f1ec6b8183" class="column-list"><div id="9cc441a2-753a-449a-a6b6-8185e156209a" style="width:25%" class="column"><p id="04776ed7-f09f-47b9-8ac0-ce77eb072935" class="">Table of Content</p><p id="7e65e155-3624-49f2-8568-f19e1d0c8ccf" class="">🤔</p></div><div id="14a48b4d-4d74-471c-b184-ffbaeb0fc7f6" style="width:75%" class="column"><nav id="715dcbea-78f7-4df2-a261-9ac44db6fc51" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#de4ff1d1-71f3-49e4-8103-1393f8b81ccf"><code>Backend input</code> </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#85f8f6ad-7137-4bb8-a97c-85041c12fb16"><code>Backend output</code> </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9399f272-0437-4b64-960e-1c63992c475d"><code>URL</code></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#cefe7f4a-67e3-442c-b7fa-86706914f76c"><code>Parameter</code></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8a677631-da42-4b27-949d-d849f7d8babd"><code>Query Parameter</code></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#009af2d3-e1ce-4739-be32-87f2e5ee4832"><code>Router</code></a></div></nav></div></div><p id="0716f351-8617-4a97-bf92-4a34d92304cd" class="">
+</p><p id="c4879f13-eaee-4f37-a371-fb96822742ce" class=""><mark class="highlight-gray_background">Method</mark><mark class="highlight-gray">            </mark><mark class="highlight-teal">Address                 </mark><mark class="highlight-purple">Path</mark></p><p id="cb3ee4a3-a74e-4c65-82a0-7c2a4d72c109" class=""><mark class="highlight-gray_background">GET</mark>    <mark class="highlight-orange_background">https://</mark><mark class="highlight-teal_background">maxwell.sg</mark><mark class="highlight-blue_background">:8888</mark><mark class="highlight-purple_background">/menus/chicken-rice/8888</mark></p><p id="394e1a8e-3fdc-4685-a1a3-84df51bcfb87" class="">          <mark class="highlight-orange">protocol               </mark><mark class="highlight-blue">Port</mark></p><h3 id="de4ff1d1-71f3-49e4-8103-1393f8b81ccf" class=""><code>Backend input</code> </h3><p id="799fb540-e59a-4b24-a01c-29354d81f624" class="">→ ใส่ input ลงไป ต้องชัดเจน </p><ul id="9e8250bb-0afc-4e7e-b0c3-4147e4fba12e" class="bulleted-list"><li style="list-style-type:disc">URL</li></ul><ul id="005206ee-29de-4ed7-a8f8-ae2544acc4c3" class="bulleted-list"><li style="list-style-type:disc">Parameter</li></ul><ul id="c488946a-240f-439a-83a2-da6c6f09a38c" class="bulleted-list"><li style="list-style-type:disc">Query Parameter</li></ul><ul id="2a99b399-0500-4afc-81f7-13a311d6d85b" class="bulleted-list"><li style="list-style-type:disc">Body</li></ul><h3 id="85f8f6ad-7137-4bb8-a97c-85041c12fb16" class=""><code>Backend output</code> </h3><p id="4c90be2f-c603-497b-86e4-76c7ec3ba64f" class="">→ มันต้องตอบกลับได้ </p><ul id="5e3ee8f2-f6dc-4206-8a02-f2ea7a94fe42" class="bulleted-list"><li style="list-style-type:disc">Status code — <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200"><code>200 OK</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"><code>404 Not Found</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"><code>502 Bad Gateway</code></a></li></ul><ul id="02bd1315-b3e5-4e3d-8bd6-7b1aec8135e2" class="bulleted-list"><li style="list-style-type:disc">Body</li></ul><pre id="7acb8b06-cda1-41f4-a7d6-6041c5165106" class="code"><code>1xx: Informational
+2xx: Success
+3xx: Redirection
+4xx: Client Error
+5xx: Server Error</code></pre><p id="1bb5f218-625c-41c8-b12b-45685ddc314b" class=""><code>Node.js backend framework</code></p><ul id="1f834a7c-1662-447f-828c-2476d309bff3" class="bulleted-list"><li style="list-style-type:disc">Express</li></ul><ul id="454445b2-2612-4fef-a97a-ee66955cd238" class="bulleted-list"><li style="list-style-type:disc">nest</li></ul><ul id="1b22f899-7905-4751-877e-3e5f0d6e51e6" class="bulleted-list"><li style="list-style-type:disc">hapi</li></ul><ul id="b7c106b5-f35a-4662-a679-da266c0bfb8c" class="bulleted-list"><li style="list-style-type:disc">fastify</li></ul><p id="a27013e6-06ad-4310-bc16-b35240a167d4" class="">in <code>package.json</code> ถ้าไม่อยากใช้  <code>const express = require(&#x27;express&#x27;);</code></p><pre id="c201a357-6ad3-4d59-b25b-797ce382c775" class="code"><code>ให้เพิ่ม
+&quot;type&quot;:&quot;module&quot;
+
+เช่น
+{
+  &quot;name&quot;: &quot;express&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;express&quot;: &quot;^4.18.2&quot;
+  },
+  &quot;type&quot;:&quot;module&quot;
+}</code></pre><p id="ebc7b15d-c7ee-482a-83a2-c2a8073a89d6" class="">เวลาใช้ จะกลายเป็นเหมือน <code>react</code> คือ <code>import express from &#x27;express&#x27;;</code></p><h2 id="9399f272-0437-4b64-960e-1c63992c475d" class=""><code>URL</code></h2><pre id="9c14f1df-b477-497f-a969-98178e42c5a1" class="code"><code>รำคาญมั้ยเวลาต้องนั่ง restart server 
+เรามีตัวช่วย !! &#x27;nodemon&#x27; https://www.npmjs.com/package/nodemon
+npm install -g nodemon
+
+nodemon index.js
+
+หรือเพิ่ม &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;nodemon index.js&quot;,
+  },
+
+เวลาใช้ก็พิมพ์คำสั่ง npm run dev ได้เลย</code></pre><pre id="68f62c82-35f7-4d09-be27-a3b81825eeef" class="code"><code>index.js
+//เอาข้าวมันไก่ 1 จาน
+// GET http://localhost:8080/
+//app.get(&#x27;/&#x27;, (request, response) =&gt; {}); จำ syntax
+
+app.get(&#x27;/&#x27;, (req, res) =&gt; {
+    const chickenRice = {
+        rice: &#x27;olied rice&#x27;,
+        meat: &#x27;boiled chicken&#x27;,
+        sauce: [&#x27;red&#x27;, &#x27;white&#x27;],
+    };
+		//default = 200
+    res.send(chickenRice); //ส่งข้าวมันไก่ออกไป
+});
+
+
+app.listen(8080, () =&gt; {
+    console.log(&#x27;Server is listening on port 8080&#x27;);
+});</code></pre><pre id="75901da0-1a30-4521-91df-e772dcb616ca" class="code"><code>node index.js
+on http://localhost:8080/
+
+{&quot;rice&quot;:&quot;olied rice&quot;,&quot;meat&quot;:&quot;boiled chicken&quot;,&quot;sauce&quot;:[&quot;red&quot;,&quot;white&quot;]}</code></pre><pre id="86ef4ed2-5182-4901-b77a-e113f56ccd58" class="code"><code>on Postman
+GET http://localhost:8080/ 
+
+click SEND
+//Status 200 OK
+{
+    &quot;rice&quot;: &quot;olied rice&quot;,
+    &quot;meat&quot;: &quot;boiled chicken&quot;,
+    &quot;sauce&quot;: [
+        &quot;red&quot;,
+        &quot;white&quot;
+    ]
+}</code></pre><pre id="1f59abef-4696-4310-8382-d4d9bf46fe3c" class="code"><code>app.get(&#x27;/&#x27;, (req, res) =&gt; {
+    const chickenRice = {
+        rice: &#x27;&#x27;,
+        meat: &#x27;boiled chicken&#x27;,
+        sauce: [&#x27;red&#x27;, &#x27;white&#x27;],
+    };
+    //default = 200
+    //res.send(chickenRice); //ส่งข้าวมันไก่ออกไป
+    //ถ้าข้าวหมด ของมันไม่มีแล้ว status 404 not found
+    res.status(404).end(); //จำ syntax ไปเลย
+		//วิธีปิด res มี
+		res.send();
+    res.json();
+});
+
+on Postman
+status 404 not found</code></pre><pre id="b97d721b-96f1-4d18-b5ab-86ddced29448" class="code"><code>// GET http://localhost:8080/chicken-rice
+// GET http://localhost:8080/fried-chicken-rice
+
+// ข้าวมันไก่ต้ม
+app.get(&#x27;/chicken-rice&#x27;, (req, res) =&gt; {
+    const chickenRice = {
+        rice: &#x27;olied rice&#x27;,
+        meat: &#x27;boiled chicken&#x27;,
+        sauce: [&#x27;red&#x27;, &#x27;white&#x27;],
+    };
+    //default = 200
+    res.send(chickenRice); 
+});
+
+//ข้าวมันไก่ทอด
+app.get(&#x27;/fried-chicken-rice&#x27;, (req, res) =&gt; {
+    const friedchickenRice = {
+        rice: &#x27;olied rice&#x27;,
+        meat: &#x27;fried chicken&#x27;,
+        sauce: [&#x27;syrup&#x27;, &#x27;chili&#x27;],
+    };
+    //default = 200
+    res.send(friedchickenRice); 
+});
+
+on Postman
+http://localhost:8080/chicken-rice
+{
+    &quot;rice&quot;: &quot;olied rice&quot;,
+    &quot;meat&quot;: &quot;boiled chicken&quot;,
+    &quot;sauce&quot;: [
+        &quot;red&quot;,
+        &quot;white&quot;
+    ]
+}
+
+http://localhost:8080/fried-chicken-rice
+{
+    &quot;rice&quot;: &quot;olied rice&quot;,
+    &quot;meat&quot;: &quot;fried chicken&quot;,
+    &quot;sauce&quot;: [
+        &quot;syrup&quot;,
+        &quot;chili&quot;
+    ]
+}
+
+but http://localhost:8080/
+404 not found</code></pre><h2 id="cefe7f4a-67e3-442c-b7fa-86706914f76c" class=""><code>Parameter</code></h2><pre id="68e4f8a1-2aa6-41d4-984e-223faeb5ca08" class="code"><code>app.get(&#x27;/:menu&#x27;, (req, res) =&gt; {  // ใช้ : (colon)
+    console.log(&#x27;Request paramaeters&#x27;);
+    console.log(req.params);
+    const chickenRice = {
+        rice: &#x27;olied rice&#x27;,
+        meat: &#x27;boiled chicken&#x27;,
+        sauce: [&#x27;red&#x27;, &#x27;white&#x27;],
+    };
+    //default = 200
+    res.send(chickenRice); 
+});
+
+//Request paramaeters
+//{ menu: &#x27;chicken-rice&#x27; }
+
+on Postman
+http://localhost:8080/chicken-rice
+{
+    &quot;rice&quot;: &quot;olied rice&quot;,
+    &quot;meat&quot;: &quot;boiled chicken&quot;,
+    &quot;sauce&quot;: [
+        &quot;red&quot;,
+        &quot;white&quot;
+    ]
+}</code></pre><pre id="c0692a9d-70c0-41ca-8d4b-94d3b4733da0" class="code"><code>app.get(&#x27;/:menu&#x27;, (req, res) =&gt; {
+    console.log(&#x27;Request paramaeters&#x27;);
+    console.log(req.params);
+    const { menu } = req.params;
+    const chickenRice = {
+        rice: &#x27;olied rice&#x27;,
+    };
+    if (menu === &#x27;chicken-rice&#x27;) {
+				chickenRice.meat = &#x27;boiled-chicken&#x27;;
+        chickenRice.sauce = [&#x27;red&#x27;, &#x27;white&#x27;];
+    } else if (menu === &#x27;fried-chicken-rice&#x27;) {
+        chickenRice.meat = &#x27;fried chicken&#x27;;
+        chickenRice.sauce = [&#x27;syrup&#x27;, &#x27;chili&#x27;];
+    }
+    //default = 200
+    res.send(chickenRice); 
+});
+
+on Postman
+http://localhost:8080/chicken-rice
+{
+    &quot;rice&quot;: &quot;olied rice&quot;,
+    &quot;meat&quot;: &quot;boiled-chicken&quot;,
+    &quot;sauce&quot;: [
+        &quot;red&quot;,
+        &quot;white&quot;
+    ]
+}
+
+http://localhost:8080/fried-chicken-rice
+{
+    &quot;rice&quot;: &quot;olied rice&quot;,
+    &quot;meat&quot;: &quot;fried chicken&quot;,
+    &quot;sauce&quot;: [
+        &quot;syrup&quot;,
+        &quot;chili&quot;
+    ]
+}</code></pre><pre id="887a24bc-3f70-40d5-b7c1-e0b7f5992ffa" class="code"><code>app.get(&#x27;/:menu&#x27;, (req, res) =&gt; {
+    console.log(&#x27;Request paramaeters&#x27;);
+    console.log(req.params);
+		// const params = { menu: &#x27;chicken-rice&#x27;, &#x27;sauce&#x27;, &#x27;pickle&#x27;};
+    // const menu = params.menu;
+		// const sauce = params.sauce
+		// const pickle = params.pickle 
+		// const { menu, sauce, pickle } = req.params;
+    const { menu } = req.params;
+    const chickenRice = {
+        rice: &#x27;olied rice&#x27;,
+    };
+    if (menu === &#x27;chicken-rice&#x27;) {
+        chickenRice.meat = &#x27;boiled-chicken&#x27;;
+        chickenRice.sauce = [&#x27;red&#x27;, &#x27;white&#x27;];
+        res.status(200).send(chickenRice); 
+    } else if (menu === &#x27;fried-chicken-rice&#x27;) {
+        chickenRice.meat = &#x27;fried chicken&#x27;;
+        chickenRice.sauce = [&#x27;syrup&#x27;, &#x27;chili&#x27;];
+        res.status(200).send(chickenRice); 
+    } else {
+        //400 Bad Request
+        res.status(400).send(`We not serving ${menu}`)
+    }
+});
+
+on Postman
+http://localhost:8080/kaomoodang
+We not serving kaomoodang</code></pre><pre id="359d9f3a-c7c0-4487-98e0-4c1beaa7f4c9" class="code"><code>app.post(&#x27;/:menu&#x27;, (req, res) =&gt; {}); //การสร้าง การเพิ่มข้อมูล จดกระดาษหน้าใหม่ บลาๆ เช่น ไปวิ่งมา 3 ชม
+app.put(&#x27;/:menu&#x27;, (req, res) =&gt; {}); //อัพเดทข้อมูล เช่น ลงไปแล้วว่าไปวิ่งมา 3 ชม แต่จะแก้ ออกเพิ่ม จาก 3 -&gt; 4 ชม
+app.delete (&#x27;/:menu&#x27;, (req, res) =&gt; {}); //ลบข้อมูล</code></pre><pre id="127b1a37-ae5a-4958-8ab7-0418d05aad46" class="code"><code>//อยากให้ลูกค้ามาสั่งล่วงหน้า
+// POST /:menu 
+
+const preOrders = [];
+
+app.post(&#x27;/pre-orders&#x27;, (req, res) =&gt; { 
+    const { menu } = req.params;
+    const newPreorder = {
+        id: preOrders.length,
+        menu: menu,
+    };
+    preOrders.push(newPreorder);
+    res.status(200).send(`Order success. Your order id ${newPreorder.id}`); 
+});
+
+on Postman
+http://localhost:8080/chicken-rice
+Order success. Your order id 0</code></pre><pre id="95ed951d-26da-49bc-b272-81c77f59b0d2" class="code"><code>//ลูกค้ายกเลิกออเดอร์
+// DELETE /:menu 
+
+app.delete(&#x27;/pre-orders/:orderID&#x27;, (req, res) =&gt; { 
+    const { menu, orderID } = req.params;
+    const newPreorderIndex = preOrders.findIndex((order) =&gt; order.id === order.id);
+    if (newPreorderIndex === -1) { //ถ้าเป็น -1 คือ ไม่มีคำสั่ง order นี้ ยกเลิกไม่ได้
+        return res.status(404).send(`Order ${orderID} not found`); 
+    }
+    preOrders[newPreorderIndex] = null
+    res.status(200).send(`Order ${orderID} canceled`); 
+});
+
+on Postman
+//post ก่อน (สร้างก่อน) สัก 5 order
+http://localhost:8080/pre-orders/
+Order success. Your order id 5
+//ถ้าจะลบ order ที่ 3
+//ส่งเป็น delete 
+http://localhost:8080/pre-orders/3
+Order 3 canceled</code></pre><h2 id="8a677631-da42-4b27-949d-d849f7d8babd" class=""><code>Query Parameter</code></h2><pre id="9a7e820c-37ba-447f-b087-b21ef3626834" class="code"><code>http://localhost:8080/pre-orders/?menu=fried-chicken-rice&amp;size=xl
+
+ด้านหลัง ? ทั้งหมด จะเรียก Query Param
+ในที่นี้คือ menu=fried-chicken-rice&amp;size=xl
+จะใช้ ตัว &amp; ใน การแบ่ง</code></pre><table id="9bd42273-02a8-4f56-8bf9-59360ebf21f3" class="simple-table"><tbody><tr id="eeb29d48-c311-4541-baa6-152ddf543472"><td id="IOAC" class="">key</td><td id="VV&lt;m" class="">value</td></tr><tr id="4d63546f-70af-4745-ba28-47b02fdb63f0"><td id="IOAC" class="">menu</td><td id="VV&lt;m" class="">fried-chicken-rice</td></tr><tr id="368b517a-b489-49a4-abaf-fa1ccfe580ab"><td id="IOAC" class="">size</td><td id="VV&lt;m" class="">xl</td></tr></tbody></table><pre id="669f9b7e-0976-4cf3-847a-72bc2276c85d" class="code"><code>app.post(&#x27;/pre-orders&#x27;, (req, res) =&gt; { 
+    const { menu, size } = req.query;
+    console.log(&#x27;Request query&#x27;);
+    console.log(req.query);
+    const newPreorder = {
+        id: preOrders.length,
+        menu: menu,
+    };
+    preOrders.push(newPreorder);
+    res.status(200).send(`Order success. Your order id ${newPreorder.id}`); 
+});
+
+Request query
+{ menu: &#x27;fried-chicken-rice&#x27;, size: &#x27;xl&#x27; }</code></pre><h2 id="009af2d3-e1ce-4739-be32-87f2e5ee4832" class=""><code>Router</code></h2><pre id="d801e664-c168-4795-8016-1fc2acf91138" class="code"><code>โดยปกติจะอยู่ใน folder routers
+สร้างไฟล์ใหม่ขึ้นมา ชื่อ preOrder.js
+
+ใน index.js
+import { preOrdersRouter } from &#x27;./routers/preOrder.js&#x27;;
+
+และเวลาต้องการจะประกอบร่าง
+app.use(preOrdersRouter);
+
+ใน preOrder.js
+const preOrdersRouter = express.Router(); //อันนี้จำไปเลย ถ้าต้องการจะสร้าง router ตัวใหม่</code></pre><pre id="11e9cdb4-0527-43b0-8318-c60e50110ad7" class="code"><code>ใน preOrder.js เขียนเหมือน app ทุกอย่างเลย แค่เปลี่ยนเป็น preOrdersRouter 
+
+import express from &#x27;express&#x27;;
+const preOrdersRouter = express.Router();
+
+const preOrders = [];
+
+// preOrdersRouter.get(&#x27;/pre-orders:orderId&#x27;, (req, res) =&gt; { 
+// });
+
+preOrdersRouter.post(&#x27;/pre-orders&#x27;, (req, res) =&gt; { 
+    const { menu, size } = req.query;
+    console.log(&#x27;Request query&#x27;);
+    console.log(req.query);
+    const newPreorder = {
+        id: preOrders.length,
+        menu: menu,
+    };
+    preOrders.push(newPreorder);
+    res.status(200).send(`Order success. Your order id ${newPreorder.id}`); 
+});
+
+//ลูกค้ายกเลิกออเดอร์
+// DELETE /:menu 
+
+preOrdersRouter.delete(&#x27;/pre-orders/:orderID&#x27;, (req, res) =&gt; { 
+    const { menu, orderID } = req.params;
+    const newPreorderIndex = preOrders.findIndex((order) =&gt; order.id === order.id);
+    if (newPreorderIndex === -1) { //ถ้าเป็น -1 คือ ไม่มีคำสั่ง order นี้ ยกเลิกไม่ได้
+        return res.status(404).send(`Order ${orderID} not found`); 
+    }
+    preOrders[newPreorderIndex] = null
+    res.status(200).send(`Order ${orderID} canceled`); 
+});
+
+export { preOrdersRouter }; //อย่าลืม export ไม่งั้น Index.js จะหาไม่เจอ
+</code></pre><pre id="b441f34f-43a9-45d7-8d85-a8c43c24d597" class="code"><code>จะเห็นได้ว่า ตรง
+preOrdersRouter.post(&#x27;/pre-orders&#x27;, (req, res) =&gt; { 
+มี /pre-orders ยุบยับไปหมด เราลบออกได้นะ
+
+แล้วใส่ path ตรง
+app.use(&#x27;/pre-orders&#x27;, preOrdersRouter); แทน
+คือให้ path pre-orders ทั้งหมดเนี่ย วิ่งเข้า preOrdersRouter โค้ดจะมีความเรียบร้อยขึ้น</code></pre></div></article></body></html>

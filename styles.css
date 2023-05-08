@@ -14,6 +14,11 @@
     max-width: 800px;
   }
   
+  .navflex {
+    display: flex;
+    flex-direction: row;
+  }
+
   .nav-link {
     color: #f8f9fa;
     text-decoration: none;
@@ -51,7 +56,7 @@
     color: #fff;
     text-decoration: none;
   }
-  
+
   @media screen and (min-width: 992px) {
     img {
       width: 100%;
@@ -99,7 +104,7 @@
     max-width: 100%;
   }
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 991px) {
     .navbar-collapse {
       background-color: #212529;
       position: absolute;
@@ -115,6 +120,7 @@
   
     .navbar-collapse.show {
       height: 100%;
+      z-index: 1000;
     }
   
     .navbar-nav {

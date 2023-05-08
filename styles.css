@@ -56,6 +56,32 @@
     img {
       width: 100%;
     }
+    .navbar-collapse {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1;
+      display: none;
+      float: none;
+      width: 100%;
+      padding-top: 0.5rem;
+      background-color: #212529;
+    }
+    .navbar-collapse.show {
+      display: block;
+    }
+    .navbar-nav .nav-item {
+      float: none;
+      margin-right: 0;
+    }
+    .navbar-nav .dropdown-menu {
+      position: static;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+    }
   }
   
   .card-img-top {
@@ -117,6 +143,6 @@
         color: #fff;
     }
     .navbar-toggler span {
-        background-color: #fff;
+        background-color: #212529;
     }
 }

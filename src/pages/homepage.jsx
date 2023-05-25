@@ -160,7 +160,7 @@ const Homepage = () => {
 
 						<div className="homepage-after-title">
 							<div className="homepage-articles">
-								{myArticles.map((article, index) => (
+								{/* {myArticles.map((article, index) => (
 									<div
 										className="homepage-article"
 										key={(index + 1).toString()}
@@ -173,11 +173,11 @@ const Homepage = () => {
 											link={"/article/" + (index + 1)}
 										/>
 									</div>
-								))}
+								))} */}
 							</div>
 
 							<div className="homepage-works">
-								<Works />
+								{/* <Works /> */}
 							</div>
 						</div>
 

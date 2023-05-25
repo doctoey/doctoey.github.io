@@ -1,3 +1,5 @@
+import imgagess from '../image/project/project.jpg'
+
 const INFO = {
 	main: {
 		title: "Reactfolio by truethari",
@@ -36,6 +38,7 @@ const INFO = {
 	projects: [
 		{
 			title: "Project 1",
+			image:imgagess,
 			description:
 				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
 			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",

@@ -1,6 +1,7 @@
 @import "../../../data/styles.css";
 .social,
 .email-wrapper {
+	background: #000;
 	display: flex;
 	padding-bottom: 20px;
 }

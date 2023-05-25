@@ -1,6 +1,7 @@
 @import "../../../data/styles.css";
 
 .article {
+	background: #000;
 	display: flex;
 }
 

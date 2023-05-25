@@ -1,6 +1,7 @@
 @import "../../../data/styles.css";
 
 .homepage-article {
+	background: #000;
 	width: 90%;
 	mix-blend-mode: normal;
 	border-radius: 20px;
@@ -8,7 +9,8 @@
 }
 
 .homepage-article:hover {
-	background: #fafafa;
+	/* background: #fafafa; */
+	background: #000;
 	opacity: 1;
 	transition: background-color 0.3s ease-in-out;
 }

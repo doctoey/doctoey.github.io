@@ -2,9 +2,11 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
+	// eslint-disable-next-line
 	faTwitter,
 	faGithub,
 	faLinkedin,
+	// eslint-disable-next-line
 	faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -51,7 +53,7 @@ const Socials = () => {
 							className="social-icon"
 						/>
 					</div>
-					<div className="social-text">Follow on LinkedIn</div>
+					<div className="social-text">LinkedIn</div>
 				</a>
 			</div>
 

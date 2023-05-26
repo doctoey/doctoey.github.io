@@ -37,7 +37,7 @@ const Articles = () => {
 						</div>
 
 						<div className="articles-container">
-							<div className="articles-wrapper">
+							{/* <div className="articles-wrapper">
 								{myArticles.map((article, index) => (
 									<div
 										className="articles-article"
@@ -52,7 +52,7 @@ const Articles = () => {
 										/>
 									</div>
 								))}
-							</div>
+							</div> */}
 						</div>
 					</div>
 					<div className="page-footer">

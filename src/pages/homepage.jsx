@@ -3,10 +3,14 @@ import React, { useState, useEffect } from "react";
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+	// eslint-disable-next-line 
 	faTwitter,
 	faGithub,
+	// eslint-disable-next-line 
 	faStackOverflow,
+	// eslint-disable-next-line 
 	faInstagram,
+	faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
 import Logo from "../components/common/logo";
@@ -87,7 +91,14 @@ const Homepage = () => {
 								</div>
 
 								<div className="subtitle homepage-subtitle">
-									{INFO.homepage.description}
+									{INFO.imagetech.map((image, index) => (
+										<img
+											key={index}
+											src={image}
+											alt={`image-${index}`}
+											style={{width:"50px"}}
+										/>
+									))}
 								</div>
 							</div>
 
@@ -106,12 +117,12 @@ const Homepage = () => {
 
 						<div className="homepage-socials">
 							<a
-								href={INFO.socials.twitter}
+								href={INFO.socials.linkedin}
 								target="_blank"
 								rel="noreferrer"
 							>
 								<FontAwesomeIcon
-									icon={faTwitter}
+									icon={faLinkedin}
 									className="homepage-social-icon"
 								/>
 							</a>
@@ -125,7 +136,7 @@ const Homepage = () => {
 									className="homepage-social-icon"
 								/>
 							</a>
-							<a
+							{/* <a
 								href={INFO.socials.stackoverflow}
 								target="_blank"
 								rel="noreferrer"
@@ -134,8 +145,8 @@ const Homepage = () => {
 									icon={faStackOverflow}
 									className="homepage-social-icon"
 								/>
-							</a>
-							<a
+							</a> */}
+							{/* <a
 								href={INFO.socials.instagram}
 								target="_blank"
 								rel="noreferrer"
@@ -144,7 +155,7 @@ const Homepage = () => {
 									icon={faInstagram}
 									className="homepage-social-icon"
 								/>
-							</a>
+							</a> */}
 							<a
 								href={`mailto:${INFO.main.email}`}
 								target="_blank"

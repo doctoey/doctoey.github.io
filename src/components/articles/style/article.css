@@ -1,5 +1,10 @@
 @import "../../../data/styles.css";
 
+body {
+	margin: 0;
+	background: #0d2538;
+}
+
 .article {
 	background: #000;
 	display: flex;

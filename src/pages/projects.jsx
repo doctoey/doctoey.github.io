@@ -27,21 +27,14 @@ const Projects = () => {
 					</div>
 					<div className="projects-container">
 						<div className="title projects-title">
-							Things I’ve made trying to put my dent in the
-							universe.
+							My Portfolio Projects
 						</div>
 
 						<div className="subtitle projects-subtitle">
-							I've worked on a variety of projects over the years
-							and I'm proud of the progress I've made. Many of
-							these projects are open-source and available for
-							others to explore and contribute to. If you're
-							interested in any of the projects I've worked on,
-							please feel free to check out the code and suggest
-							any improvements or enhancements you might have in
-							mind. Collaborating with others is a great way to
-							learn and grow, and I'm always open to new ideas and
-							feedback.
+						Welcome to my portfolio! Here, you can explore some of projects I have worked on. 
+						Take a look below to discover a collection of my featured projects, showcasing my skills and expertise in web development. 
+						Each project represents a unique challenge and demonstrates my commitment to delivering high-quality solutions. 
+						Feel free to explore the live demos and delve into the source code behind these projects.
 						</div>
 
 						<div className="projects-list">

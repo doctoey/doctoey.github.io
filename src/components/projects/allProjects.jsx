@@ -12,12 +12,18 @@ const AllProjects = () => {
 			{INFO.projects.map((project, index) => (
 				<div className="all-projects-project" key={index}>
 					<Project
-						logo={project.logo}
+						logoone={project.logoone}
+						logotwo={project.logotwo}
+						logothree={project.logothree}
+						logofour={project.logofour}
+						logofive={project.logofive}
 						title={project.title}
 						image={project.image}
 						description={project.description}
-						linkText={project.linkText}
-						link={project.link}
+						linkTextone={project.linkTextone}
+						linkTexttwo={project.linkTexttwo}
+						linkone={project.linkone}
+						linktwo={project.linktwo}
 					/>
 				</div>
 			))}

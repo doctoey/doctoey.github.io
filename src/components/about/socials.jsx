@@ -2,9 +2,11 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
+	// eslint-disable-next-line
 	faTwitter,
 	faGithub,
 	faLinkedin,
+	// eslint-disable-next-line
 	faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -15,7 +17,7 @@ import "./styles/socials.css";
 const Socials = () => {
 	return (
 		<div className="socials">
-			<div className="social">
+			{/* <div className="social">
 				<a href={INFO.socials.twitter} target="_blank" rel="noreferrer">
 					<div className="social-icon">
 						<FontAwesomeIcon
@@ -25,7 +27,7 @@ const Socials = () => {
 					</div>
 					<div className="social-text">Follow on Twitter</div>
 				</a>
-			</div>
+			</div> */}
 
 			<div className="social">
 				<a href={INFO.socials.github} target="_blank" rel="noreferrer">
@@ -35,7 +37,7 @@ const Socials = () => {
 							className="social-icon"
 						/>
 					</div>
-					<div className="social-text">Follow on GitHub</div>
+					<div className="social-text">GitHub</div>
 				</a>
 			</div>
 
@@ -51,11 +53,11 @@ const Socials = () => {
 							className="social-icon"
 						/>
 					</div>
-					<div className="social-text">Follow on LinkedIn</div>
+					<div className="social-text">LinkedIn</div>
 				</a>
 			</div>
 
-			<div className="social">
+			{/* <div className="social">
 				<a
 					href={INFO.socials.instagram}
 					target="_blank"
@@ -69,7 +71,7 @@ const Socials = () => {
 					</div>
 					<div className="social-text">Follow on Instagram</div>
 				</a>
-			</div>
+			</div> */}
 
 			<div className="email">
 				<div className="email-wrapper">

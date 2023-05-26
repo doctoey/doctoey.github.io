@@ -3,20 +3,27 @@ import React, { useState, useEffect } from "react";
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+	// eslint-disable-next-line 
 	faTwitter,
 	faGithub,
+	// eslint-disable-next-line 
 	faStackOverflow,
+	// eslint-disable-next-line 
 	faInstagram,
+	faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
 import Logo from "../components/common/logo";
 import Footer from "../components/common/footer";
 import NavBar from "../components/common/navBar";
+// eslint-disable-next-line 
 import Article from "../components/homepage/article";
+// eslint-disable-next-line 
 import Works from "../components/homepage/works";
 import AllProjects from "../components/projects/allProjects";
 
 import INFO from "../data/user";
+// eslint-disable-next-line 
 import myArticles from "../data/articles";
 
 import "./styles/homepage.css";
@@ -84,7 +91,15 @@ const Homepage = () => {
 								</div>
 
 								<div className="subtitle homepage-subtitle">
-									{INFO.homepage.description}
+									{INFO.imagetech.map((image, index) => (
+										// eslint-disable-next-line
+										<img
+											key={index}
+											src={image}
+											alt={`image-${index}`}
+											style={{width:"50px", height:"50px", margin:"10px"}}
+										/>
+									))}
 								</div>
 							</div>
 
@@ -103,12 +118,12 @@ const Homepage = () => {
 
 						<div className="homepage-socials">
 							<a
-								href={INFO.socials.twitter}
+								href={INFO.socials.linkedin}
 								target="_blank"
 								rel="noreferrer"
 							>
 								<FontAwesomeIcon
-									icon={faTwitter}
+									icon={faLinkedin}
 									className="homepage-social-icon"
 								/>
 							</a>
@@ -122,7 +137,7 @@ const Homepage = () => {
 									className="homepage-social-icon"
 								/>
 							</a>
-							<a
+							{/* <a
 								href={INFO.socials.stackoverflow}
 								target="_blank"
 								rel="noreferrer"
@@ -131,8 +146,8 @@ const Homepage = () => {
 									icon={faStackOverflow}
 									className="homepage-social-icon"
 								/>
-							</a>
-							<a
+							</a> */}
+							{/* <a
 								href={INFO.socials.instagram}
 								target="_blank"
 								rel="noreferrer"
@@ -141,7 +156,7 @@ const Homepage = () => {
 									icon={faInstagram}
 									className="homepage-social-icon"
 								/>
-							</a>
+							</a> */}
 							<a
 								href={`mailto:${INFO.main.email}`}
 								target="_blank"

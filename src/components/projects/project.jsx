@@ -6,30 +6,40 @@ import { faLink } from "@fortawesome/free-solid-svg-icons";
 import "./styles/project.css";
 
 const Project = (props) => {
-	const { logo, title, description, linkText, link, image } = props;
+	const { logoone, logotwo, logothree ,logofour , logofive , title, description, linkTextone, linkTexttwo, linkone, linktwo, image } = props;
 
 	return (
 		<React.Fragment>
 			<div className="project">
-				<Link to={link}>
+				{/* <Link to={link}> */}
 					<div className="project-container">
 						<div className="project-logo">
-							<img src={logo} alt="logo" />
+							<img src={logoone} alt="logo" />
+							<img src={logotwo} alt="logo" />
+							<img src={logothree} alt="logo" />
+							<img src={logofour} alt="logo" />
+							<img src={logofive} alt="logo" />
 						</div>
 						<div className="project-title">{title}</div>
 						<div className="project-image">
-							<img src={image} alt="image" />
+						{/* eslint-disable-next-line  */}
+							<img src={image} alt="image" width={250} />
 						</div>
-						<div className="project-description">{description}</div>
+						<div className="project-description" style={{marginTop:"15px"}}>{description}</div>
 						<div className="project-link">
 							<div className="project-link-icon">
 								<FontAwesomeIcon icon={faLink} />
 							</div>
 
-							<div className="project-link-text">{linkText}</div>
+							<Link to={linkone}>
+							<div className="project-link-text">{linkTextone}</div>
+							</Link>
+							<Link to={linktwo}>
+							<div className="project-link-text">{linkTexttwo}</div>
+							</Link>
 						</div>
 					</div>
-				</Link>
+				{/* </Link> */}
 			</div>
 		</React.Fragment>
 	);

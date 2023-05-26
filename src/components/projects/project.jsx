@@ -6,18 +6,19 @@ import { faLink } from "@fortawesome/free-solid-svg-icons";
 import "./styles/project.css";
 
 const Project = (props) => {
-	const { logo, title, description, linkText, link, image } = props;
+	const { logo, title, description, linkTextone, linkTexttwo, linkone, linktwo, image } = props;
 
 	return (
 		<React.Fragment>
 			<div className="project">
-				<Link to={link}>
+				{/* <Link to={link}> */}
 					<div className="project-container">
 						<div className="project-logo">
 							<img src={logo} alt="logo" />
 						</div>
 						<div className="project-title">{title}</div>
 						<div className="project-image">
+						{/* eslint-disable-next-line  */}
 							<img src={image} alt="image" />
 						</div>
 						<div className="project-description">{description}</div>
@@ -26,10 +27,15 @@ const Project = (props) => {
 								<FontAwesomeIcon icon={faLink} />
 							</div>
 
-							<div className="project-link-text">{linkText}</div>
+							<Link to={linkone}>
+							<div className="project-link-text">{linkTextone}</div>
+							</Link>
+							<Link to={linktwo}>
+							<div className="project-link-text">{linkTexttwo}</div>
+							</Link>
 						</div>
 					</div>
-				</Link>
+				{/* </Link> */}
 			</div>
 		</React.Fragment>
 	);

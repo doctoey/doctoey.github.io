@@ -16,8 +16,10 @@ const AllProjects = () => {
 						title={project.title}
 						image={project.image}
 						description={project.description}
-						linkText={project.linkText}
-						link={project.link}
+						linkTextone={project.linkTextone}
+						linkTexttwo={project.linkTexttwo}
+						linkone={project.linkone}
+						linktwo={project.linktwo}
 					/>
 				</div>
 			))}

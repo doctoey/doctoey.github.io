@@ -1,4 +1,10 @@
-import imgagess from '../image/project/project.jpg'
+import java21 from '../image/project/java21.png'
+import colmar from '../image/project/colmar.png'
+import findhat from '../image/project/findhat.png'
+import jsdproject from '../image/project/jsdproject.png'
+import react from '../image/project/react.png'
+
+import transimg from '../image/project/transproject.png'
 
 const INFO = {
 	main: {
@@ -47,58 +53,90 @@ const INFO = {
 	},
 
 	articles: {
-		title: "I'm passionate about pushing the boundaries of what's possible and inspiring the next generation of innovators.",
+		title: "This is my Certificate.",
 		description:
-			"Chronological collection of my long-form thoughts on programming, leadership, product design, and more.",
+			"I have successfully completed a certification program in a specific field or technology. This certificate represents my knowledge and skills in that area, demonstrating my commitment to continuous learning and professional development.",
 	},
 
 	projects: [
 		{
-			title: "Project 1",
-			image:imgagess,
+			title: "G-Trainee Fitness & Health",
+			image:jsdproject,
 			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+				"Created a Full-stack web application with full CRUD functionality built using react, mongoDB, and mongoose",
+			logoone: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			logotwo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+			logothree: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+			logofour: "https://icongr.am/devicon/express-original.svg?size=128&color=ffffff",
+			logofive: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg",
 			linkTextone: "Live Demo",
-			linkone: "https://github.com",
+			linkone: "https://reborn-giwon.vercel.app/",
 			linkTexttwo: "Souce Code",
-			linktwo: "https://github.com",
+			linktwo: "https://github.com/pramotepon/reborn-giwon",
 		},
 
 		{
-			title: "Project 2",
+			title: "React-Assessment Generation Thailand",
+			image:react,
 			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/python/python.png",
-			linkText: "View Project",
-			link: "https://github.com",
+				"A comprehensive assessment application built with React and JavaScript. It incorporates route creation, component structure, user interface implementation, state management, table creation and data rendering, property handling, and user management.",
+			logoone: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+			logotwo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			logothree: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
+			logofour: transimg,
+			logofive: transimg,
+			linkTextone: "Live Demo",
+			linkone: "https://react-assessment-cheewathun.vercel.app/",
+			linkTexttwo: "Souce Code",
+			linktwo: "https://github.com/doctoey/react-assessment",
 		},
 
 		{
-			title: "Project 3",
+			title: "Colmar Academy",
+			image:colmar,
 			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/html/html.png",
-			linkText: "View Project",
-			link: "https://github.com",
+				"This project demonstrates the use of HTML and CSS to create a visually appealing and interactive website for an educational institution.",
+			logoone: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/html/html.png",
+			logotwo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg",
+			logothree: transimg,
+			logofour: transimg,
+			logofive: transimg,
+			linkTextone: "Live Demo",
+			linkone: "https://colmar-academy-doctoey.vercel.app/",
+			linkTexttwo: "Souce Code",
+			linktwo: "https://github.com/doctoey/ColmarAcademy_doctoey",
 		},
 
 		{
-			title: "Project 4",
+			title: "Find Your Hat",
+			image:findhat,
 			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
-			linkText: "View Project",
-			link: "https://github.com",
+				"Find Your Hat is an interactive JavaScript project where you'll navigate a field filled with holes and obstacles to find your lost hat.",
+			logoone: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			logotwo: transimg,
+			logothree: transimg,
+			logofour: transimg,
+			logofive: transimg,
+			linkTextone: "Live Demo",
+			linkone: "https://replit.com/@doctoey/JSD-Assessment",
+			linkTexttwo: "Souce Code",
+			linktwo: "https://github.com/doctoey/tryexercises/blob/main/codecademy/Project/230330find-your-hat/main.js",
 		},
 
 		{
-			title: "Project 5",
+			title: "JavaScript 21 Days Challenge",
+			image:java21,
 			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
-			linkText: "View Project",
-			link: "https://github.com",
+				"The JavaScript 21 Days Challenge is a workshop designed to help participants improve their JavaScript skills over the course of 21 projects.",
+			logoone: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			logotwo:transimg,
+			logothree:transimg,
+			logofour:transimg,
+			logofive:transimg,
+			linkTextone: "Live Demo",
+			linkone: "https://java-script-21-day-challenge.vercel.app/",
+			linkTexttwo: "Souce Code",
+			linktwo: "https://github.com/doctoey/JavaScript-21-Day-Challenge",
 		},
 	],
 };

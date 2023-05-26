@@ -85,7 +85,7 @@ const Articles = () => {
 							{INFO.articles.title}
 						</div>
 
-						<div className="subtitle articles-subtitle">
+						<div className="subtitle articles-subtitle" style={{marginBottom:"35px"}}>
 							{INFO.articles.description}
 						</div>
 

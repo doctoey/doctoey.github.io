@@ -20,3 +20,33 @@
 		width: calc(100% / 2);
 	}
 }
+
+.project-link-text {
+	text-decoration: none;
+	color: #e5d3f0;
+}
+
+
+/* unvisited link */
+.project-link-text:link {
+	color: #e5d3f0;
+	text-decoration: none;
+}
+
+/* visited link */
+.project-link-text:visited {
+	color: e5d3f0;
+	text-decoration: none;
+}
+
+/* mouse over link */
+.project-link-text:hover {
+	color: hotpink;
+	text-decoration: none;
+}
+
+/* selected link */
+.project-link-text:active {
+	color: white;
+	text-decoration: none;
+}

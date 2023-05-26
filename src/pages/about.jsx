@@ -6,6 +6,7 @@ import Logo from "../components/common/logo";
 import Socials from "../components/about/socials";
 
 import INFO from "../data/user";
+import GitHubCalendar from 'react-github-calendar';
 
 import "./styles/about.css";
 
@@ -35,6 +36,7 @@ const About = () => {
 
 								<div className="subtitle about-subtitle">
 									{INFO.about.description}
+									<GitHubCalendar username="doctoey" style={{marginTop:"35px"}}/>
 								</div>
 							</div>
 

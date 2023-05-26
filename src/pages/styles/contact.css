@@ -36,3 +36,32 @@
 	justify-content: flex-start;
 	align-items: center;
 }
+
+.a-tag {
+	text-decoration: none;
+	color: #e5d3f0;
+}
+
+/* unvisited link */
+.a-tag:link {
+	color: #e5d3f0;
+	text-decoration: none;
+}
+
+/* visited link */
+.a-tag:visited {
+	color: e5d3f0;
+	text-decoration: none;
+}
+
+/* mouse over link */
+.a-tag:hover {
+	color: hotpink;
+	text-decoration: none;
+}
+
+/* selected link */
+.a-tag:active {
+	color: white;
+	text-decoration: none;
+}

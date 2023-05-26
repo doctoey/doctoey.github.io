@@ -24,15 +24,26 @@ const INFO = {
 	},
 	imagetech: [
 		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg',
+		'https://icongr.am/devicon/express-original-wordmark.svg?size=128&color=ffffff',
+		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain-wordmark.svg',
+		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain-wordmark.svg',
+		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original-wordmark.svg',
 		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
 		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg',
+		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg',
+		'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
+		'https://icongr.am/simple/postman.svg?size=128&color=EF5B25&colored=false',
+		'https://icongr.am/simple/github.svg?size=128&color=ffffff&colored=false',
+
 	  ],	  
 
 	about: {
-		title: "I’m Cheewathun Lerttanapit. I live in Bangkok",
+		title: "🌏I'm Cheewathun Lerttanapit. I live in Bangkok",
 		description:
-			"I've worked on a variety of projects over the years and I'm proud of the progress I've made. Many of these projects are open-source and available for others to explore and contribute to. If you're interested in any of the projects I've worked on, please feel free to check out the code and suggest any improvements or enhancements you might have in mind. Collaborating with others is a great way to learn and grow, and I'm always open to new ideas and feedback.",
+			"Welcome to my web portfolio! I am a recent graduate of Generation Thailand's Junior Software Developer program (#JSD4), where I focused on mastering the MERN Stack technology. This portfolio showcases the work I have diligently undertaken to solidify my understanding of the MERN Stack and its application in web development.",
 	},
 
 	articles: {

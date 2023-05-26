@@ -92,11 +92,12 @@ const Homepage = () => {
 
 								<div className="subtitle homepage-subtitle">
 									{INFO.imagetech.map((image, index) => (
+										// eslint-disable-next-line
 										<img
 											key={index}
 											src={image}
 											alt={`image-${index}`}
-											style={{width:"50px"}}
+											style={{width:"50px", height:"50px", margin:"10px"}}
 										/>
 									))}
 								</div>
